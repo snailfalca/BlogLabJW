@@ -15,6 +15,13 @@
         <link rel="stylesheet" href="General.css">
         <style>
             #contactNav{
+                background-image: url("images/img02.jpg");
+                background-position: center;
+                background-position-y: 24px;
+                background-repeat: no-repeat;
+            }
+            
+            #contactNav a{
                 color: white;
             }
         </style>
@@ -32,18 +39,18 @@
             <section class="inputSection">
                 <div class="inputBox">
                     <div id="warningText">All fields are required</div>
-                    <form action="SendContactServlet" method="POST">
+                    <form id="contactForm" action="SendContactServlet" method="POST">
                         <p>
                             <span class="inputLabel">Name: </span>
                             <input class="inputField" name="name" type="text"/>
                         </p>
                         <p>
                             <span class="inputLabel">Email: </span>
-                            <input class="inputField" name="email" type="email"/>
+                            <input id="email" class="inputField" name="email" type="email" required=""/>
                         </p>
                         <p>
                             <span class="inputLabel">Phone: </span>
-                            <input class="inputField" name="phone" type="tel"/>
+                            <input id="phoneNumber" class="inputField" name="phone" type="tel"/>
                         </p>
                         <p>
                             <span class="inputLabel">Company: </span>
@@ -54,7 +61,7 @@
                             <textarea id="inputArea" rows="5" name="message"></textarea>
                         </p>
                         <p class="inputLine">
-                            <input id="sendBtn" type="submit" value="Send"/>
+                            <input id="sendBtn" type="button" onclick="validateForm();" value="Send"/>
                         </p>
                     </form>
                 </div>
@@ -64,4 +71,50 @@
             </aside>
         </article>
     </body>
+    <script>
+        function validateForm() {
+            var inputFields = Array.from(document.getElementsByClassName("inputField"));
+            var inputArea = document.getElementById("inputArea");
+            var phoneNumber = document.getElementById("phoneNumber");
+            var email = document.getElementById("email");
+            var contactForm = document.getElementById("contactForm");
+
+//          Check if any fields is null
+            for (var i = 0, max = 4; i < max; i++) {
+                if (inputFields[i].value.length === 0) {
+                    inputFields[i].focus();
+                    document.getElementById("warningText").setAttribute("style", "display: block;");
+                    return;
+                }
+            }
+
+//          check if input area is null
+            if (inputArea.value.length === 0) {
+                inputArea.focus();
+                document.getElementById("warningText").setAttribute("style", "display: block;");
+                return;
+            }
+
+//          check of phone number is valid
+            if (isNaN(parseInt(phoneNumber.value))) {
+                phoneNumber.focus();
+                document.getElementById("warningText").innerHTML = "Invalid phone number";
+                document.getElementById("warningText").setAttribute("style", "display: block;");
+                return;
+            }
+
+//          validate email
+            if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))){
+                email.focus();
+                document.getElementById("warningText").innerHTML = "Invalid email";
+                document.getElementById("warningText").setAttribute("style", "display: block;");
+                return;
+            }
+
+//          data validated, submit
+            contactForm.submit();
+            return;
+
+        }
+    </script>
 </html>

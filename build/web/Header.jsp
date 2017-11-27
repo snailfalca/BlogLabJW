@@ -14,8 +14,8 @@
     <body>
         <div id="logo">my blogs</div>
         <div class="navBar">
-            <span><a id="homeNav" href="Home.jsp">Home</a></span>
-            <span><a id="contactNav" href="Contact.jsp">Contact</a></span>
+            <span class="navItem" id="homeNav"><a href="Home.jsp">Home</a></span>
+            <span class="navItem" id="contactNav"><a href="Contact.jsp">Contact</a></span>
         </div>
     </body>
 </html>

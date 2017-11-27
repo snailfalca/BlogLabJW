@@ -15,6 +15,13 @@
         <link rel="stylesheet" href="General.css">
         <style>
             #homeNav{
+                background-image: url("images/img02.jpg");
+                background-position: center;
+                background-position-y: 24px;
+                background-repeat: no-repeat;
+            }
+            
+            #homeNav a{
                 color: white;
             }
         </style>
