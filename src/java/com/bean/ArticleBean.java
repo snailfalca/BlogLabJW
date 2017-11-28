@@ -46,7 +46,11 @@ public class ArticleBean implements Serializable {
         }
 
         Collections.sort(articles);
-        return articles.get(0);
+        if (articles.size() > 0) {
+            return articles.get(0);
+        } else {
+            return null;
+        }
     }
 
     //Get article with specific Id
@@ -98,7 +102,11 @@ public class ArticleBean implements Serializable {
         }
 
         Collections.sort(articles);
-        return articles.subList(0, 3);
+        if (articles.size() > 2) {
+            return articles.subList(0, 3);
+        } else {
+            return articles;
+        }
     }
 
     //Get all articles with specific Id, sort by posted Date

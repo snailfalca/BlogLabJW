@@ -16,8 +16,7 @@
         <style>
             #contactNav{
                 background-image: url("images/img02.jpg");
-                background-position: center;
-                background-position-y: 24px;
+                background-position: center bottom;
                 background-repeat: no-repeat;
             }
             

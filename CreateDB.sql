@@ -38,7 +38,8 @@ VALUES
 	('Art'),
 	('Beauty'),
 	('Food'),
-	('Car');
+	('Car'),
+	('Me!');
 GO
 
 INSERT INTO Article (CategoryID, Name, ImagePath, PostedDate, Content)

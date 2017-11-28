@@ -23,6 +23,9 @@
         </header>
         <article>
             <section>
+                <jstl:if test="${articles.size() == 0}">
+                    <p>There's no article in this category!</p>
+                </jstl:if>
                 <jstl:forEach var="post" items="${articles}">
                     <h3>${post.name}</h3>
                     <p><fmt:formatDate type="date" dateStyle="long" value="${post.postedDate}"/> - <b>Full Article</b></p>

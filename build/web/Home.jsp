@@ -16,11 +16,10 @@
         <style>
             #homeNav{
                 background-image: url("images/img02.jpg");
-                background-position: center;
-                background-position-y: 24px;
+                background-position: center bottom;
                 background-repeat: no-repeat;
             }
-            
+
             #homeNav a{
                 color: white;
             }
@@ -36,13 +35,19 @@
             <jsp:include page="Header.jsp"/>
         </header>
         <article>
-            <section>                
-                <h3>${newest.name}</h3>
-                <p><fmt:formatDate type="date" dateStyle="long" value="${newest.postedDate}"/> - <b>Full Article</b></p>
-                <p>
-                    <img class="blogImage" src="${newest.imagePath}"/>
-                    ${newest.content}
-                </p>
+            <section>      
+                <jstl:if test="${newest == null}">
+                    <p>There's no article yet!</p>
+                </jstl:if>
+                <jstl:if test="${newest != null}">
+                    <h3>${newest.name}</h3>
+                    <p><fmt:formatDate type="date" dateStyle="long" value="${newest.postedDate}"/> - <b>Full Article</b></p>
+                    <p>
+                        <img class="blogImage" src="${newest.imagePath}"/>
+                        ${newest.content}
+                    </p>
+                </jstl:if>    
+
                 <br>
             </section>
             <aside>
