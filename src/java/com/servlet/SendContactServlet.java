@@ -5,7 +5,7 @@
  */
 package com.servlet;
 
-import com.entiry.Contact;
+import com.entity.Contact;
 import com.model.ContactModel;
 import java.io.IOException;
 import java.io.PrintWriter;

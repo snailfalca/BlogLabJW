@@ -30,7 +30,9 @@
                     <h3>${post.name}</h3>
                     <p><fmt:formatDate type="date" dateStyle="long" value="${post.postedDate}"/> - <b>Full Article</b></p>
                     <p>
-                        <img class="blogImage" src="${post.imagePath}"/>
+                        <jstl:if test="${post.imagePath.length()==0}">
+                            <img class="blogImage" src="images/img04 - Copy.jpg"/>
+                        </jstl:if>
                         ${post.content}
                     </p>
                     <br>

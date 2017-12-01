@@ -5,8 +5,8 @@
  */
 package com.bean;
 
-import com.entiry.Article;
-import com.entiry.Category;
+import com.entity.Article;
+import com.entity.Category;
 import com.model.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -5,7 +5,7 @@
  */
 package com.bean;
 
-import com.entiry.Article;
+import com.entity.Article;
 import com.model.DBContext;
 import java.io.Serializable;
 import java.sql.Connection;

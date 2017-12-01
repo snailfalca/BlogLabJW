@@ -5,7 +5,7 @@
  */
 package com.model;
 
-import com.entiry.Contact;
+import com.entity.Contact;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 

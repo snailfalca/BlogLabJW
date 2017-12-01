@@ -36,14 +36,16 @@
         </header>
         <article>
             <section>      
-                <jstl:if test="${newest == null}">
-                    <p>There's no article yet!</p>
-                </jstl:if>
                 <jstl:if test="${newest != null}">
                     <h3>${newest.name}</h3>
                     <p><fmt:formatDate type="date" dateStyle="long" value="${newest.postedDate}"/> - <b>Full Article</b></p>
                     <p>
-                        <img class="blogImage" src="${newest.imagePath}"/>
+                        <jstl:if test="${newest.imagePath.length()!=0}">
+                            <img class="blogImage" src="${newest.imagePath}"/>
+                        </jstl:if>
+                        <jstl:if test="${newest.imagePath.length()==0}">
+                            <img class="blogImage" src="images/img04 - Copy.jpg"/>
+                        </jstl:if>
                         ${newest.content}
                     </p>
                 </jstl:if>    
